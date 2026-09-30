@@ -1,123 +1,260 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chá Revelação — Davi e Maria</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>Chá Revelação — Davi e Maria</title>
 
-    body {
-      margin: 0;
-      background: #fdf7f4;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      color: #333;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    .convite {
-      width: 100%;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 15px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fdf7f4;
+  color: #333;
+}
 
-    .pdf {
-      width: 100%;
-      height: 80vh;
-      border: none;
-      border-radius: 12px;
-      background: white;
-    }
+.convite {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 25px 18px 40px;
+  text-align: center;
+}
 
-    .botao {
-      display: inline-block;
-      margin: 18px auto;
-      padding: 16px 28px;
-      background: #25D366;
-      color: white;
-      text-decoration: none;
-      font-size: 19px;
-      font-weight: bold;
-      border-radius: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
+.card {
+  background: white;
+  border-radius: 25px;
+  padding: 30px 20px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.10);
+}
 
-    .texto {
-      font-size: 16px;
-      margin: 10px 0;
-    }
-  </style>
+h1 {
+  margin-top: 0;
+  font-size: 32px;
+  color: #b46b7a;
+}
+
+h2 {
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.detalhes {
+  margin: 25px 0;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.detalhes strong {
+  color: #b46b7a;
+}
+
+.presente {
+  background: #fff3f5;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+form {
+  text-align: left;
+  margin-top: 25px;
+}
+
+label {
+  display: block;
+  margin: 15px 0 7px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #25D366;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.aviso {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #777;
+}
+
+.rodape {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #888;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="convite">
+<div class="convite">
 
-    <p class="texto">
-      💙🩷 Venha viver esse momento especial com a gente! 🩷💙
+  <div class="card">
+
+    <h1>💙 Chá Revelação 💗</h1>
+
+    <h2>Davi e Maria</h2>
+
+    <p>Você é nosso convidado especial!</p>
+
+    <div class="detalhes">
+
+      <p>
+        📅 <strong>Data:</strong><br>
+        11 de outubro de 2026
+      </p>
+
+      <p>
+        ⏰ <strong>Horário:</strong><br>
+        14h
+      </p>
+
+      <p>
+        📍 <strong>Local:</strong><br>
+        Loteamento São Miguel<br>
+        Rua A, Estr. Vitor Dumas, 20<br>
+        Santa Cruz – Rio de Janeiro/RJ<br>
+        CEP 23550-160
+      </p>
+
+    </div>
+
+    <div class="presente">
+
+      <strong>🎁 Sugestão de presente</strong>
+
+      <p>
+        Fralda G + sabonete líquido neutro
+      </p>
+
+    </div>
+
+    <h2>💌 Confirme sua presença</h2>
+
+    <p>
+      Preencha os dados abaixo e envie sua confirmação pelo WhatsApp.
     </p>
 
-    <iframe
-      class="pdf"
-      src="Convite_Cha_Revelacao_Davi_Maria.pdf">
-    </iframe>
+    <form onsubmit="enviarWhatsApp(event)">
 
-    <br>
+      <label for="nome">
+        Nome do convidado:
+      </label>
 
-    <div class="confirmacao">
-  <h2>💚 Confirmar presença</h2>
+      <input
+        type="text"
+        id="nome"
+        placeholder="Digite seu nome"
+        required
+      >
 
-  <label>Seu nome</label>
-  <input type="text" id="nome" placeholder="Digite seu nome">
+      <label for="quantidade">
+        Quantidade de pessoas:
+      </label>
 
-  <label>Quantidade de pessoas</label>
-  <input type="number" id="quantidade" min="1" value="1">
+      <input
+        type="number"
+        id="quantidade"
+        min="1"
+        placeholder="Ex.: 2"
+        required
+      >
 
-  <label>Observação</label>
-  <textarea id="observacao" placeholder="Digite uma observação (opcional)"></textarea>
+      <label for="observacao">
+        Observação:
+      </label>
 
-  <button type="button" onclick="enviarConfirmacao()">
-    ✅ ENVIAR CONFIRMAÇÃO
-  </button>
+      <textarea
+        id="observacao"
+        placeholder="Digite uma observação, se necessário"
+      ></textarea>
+
+      <button type="submit">
+        ✅ CONFIRMAR PRESENÇA
+      </button>
+
+    </form>
+
+    <div class="aviso">
+      Ao clicar, o WhatsApp será aberto com sua confirmação pronta para enviar.
+    </div>
+
+    <div class="rodape">
+      Esperamos você! ❤️
+    </div>
+
+  </div>
+
 </div>
 
 <script>
-function enviarConfirmacao() {
-  const nome = document.getElementById("nome").value.trim();
-  const quantidade = document.getElementById("quantidade").value;
-  const observacao = document.getElementById("observacao").value.trim();
 
-  if (!nome) {
-    alert("Por favor, informe seu nome.");
-    return;
-  }
+function enviarWhatsApp(event) {
+
+  event.preventDefault();
+
+  const nome = document.getElementById("nome").value;
+  const quantidade = document.getElementById("quantidade").value;
+  const observacao = document.getElementById("observacao").value;
+
+  const telefone = "5521983049551";
 
   const mensagem =
-`💚 CONFIRMAÇÃO DE PRESENÇA — CHÁ REVELAÇÃO DAVI E MARIA
+`🎉 *CONFIRMAÇÃO DE PRESENÇA — CHÁ REVELAÇÃO*
 
-👤 Nome: ${nome}
-👥 Quantidade de pessoas: ${quantidade}
-📝 Observação: ${observacao || "Nenhuma"}
+👤 *Nome:* ${nome}
 
-✅ Presença confirmada!`;
+👥 *Quantidade de pessoas:* ${quantidade}
 
-  const numero = "5521983049551";
-  const url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+📝 *Observação:* ${observacao || "Nenhuma"}
 
-  window.open(url, "_blank");
+📅 *Data:* 11/10/2026
+⏰ *Horário:* 14h
+
+Obrigado pela confirmação! ❤️`;
+
+  const link =
+    "https://wa.me/" +
+    telefone +
+    "?text=" +
+    encodeURIComponent(mensagem);
+
+  window.location.href = link;
 }
+
 </script>
-      
-
-    <p class="texto">
-      Clique no botão acima para confirmar sua presença pelo WhatsApp.
-    </p>
-
-  </div>
 
 </body>
 </html>
