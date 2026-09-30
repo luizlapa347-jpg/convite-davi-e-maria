@@ -68,12 +68,50 @@
 
     <br>
 
-    <a
-      class="botao"
-      href="https://wa.me/qr/PE37OX7ULUHTD1"
-      target="_blank">
-      💚 CONFIRMAR PRESENÇA
-    </a>
+    <div class="confirmacao">
+  <h2>💚 Confirmar presença</h2>
+
+  <label>Seu nome</label>
+  <input type="text" id="nome" placeholder="Digite seu nome">
+
+  <label>Quantidade de pessoas</label>
+  <input type="number" id="quantidade" min="1" value="1">
+
+  <label>Observação</label>
+  <textarea id="observacao" placeholder="Digite uma observação (opcional)"></textarea>
+
+  <button type="button" onclick="enviarConfirmacao()">
+    ✅ ENVIAR CONFIRMAÇÃO
+  </button>
+</div>
+
+<script>
+function enviarConfirmacao() {
+  const nome = document.getElementById("nome").value.trim();
+  const quantidade = document.getElementById("quantidade").value;
+  const observacao = document.getElementById("observacao").value.trim();
+
+  if (!nome) {
+    alert("Por favor, informe seu nome.");
+    return;
+  }
+
+  const mensagem =
+`💚 CONFIRMAÇÃO DE PRESENÇA — CHÁ REVELAÇÃO DAVI E MARIA
+
+👤 Nome: ${nome}
+👥 Quantidade de pessoas: ${quantidade}
+📝 Observação: ${observacao || "Nenhuma"}
+
+✅ Presença confirmada!`;
+
+  const numero = "5521983049551";
+  const url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+
+  window.open(url, "_blank");
+}
+</script>
+      
 
     <p class="texto">
       Clique no botão acima para confirmar sua presença pelo WhatsApp.
